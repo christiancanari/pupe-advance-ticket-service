@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: pupe-advance-ticket-service
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger
+
+ticket:
+  invoice:
+    classifier:
+      patterns:
+        invoice-regex: "F11\\d-\\d{8}"
+        receipt-regex: "ANC-F501-\\d{8}"

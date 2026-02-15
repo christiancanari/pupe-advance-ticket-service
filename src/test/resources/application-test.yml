@@ -1,0 +1,48 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  application:
+    name: pupe-advance-ticket-service
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger
+
+ticket:
+  invoice:
+    classifier:
+      patterns:
+        invoice-regex: "F11\\d-\\d{8}"
+        receipt-regex: "ANC-F501-\\d{8}"
+    policy:
+      keywords:
+        - "pr"
+        - "-pr"
+        - "ir"
+        - "-ir"
+        - "peru rail"
+        - "perurail"
+        - "inca rail"
+        - "incarail"
+    validation:
+      enabled: true
+
+google:
+  drive:
+    enabled: false
+    application-name: spring-drive-app
+    credentials:
+      location: classpath:credentials/pupe-advance-credential.json
+    scopes:
+      - https://www.googleapis.com/auth/drive.readonly
+
+logging:
+  level:
+    root: INFO
+    com.christiancanari.pupe: INFO
+    org.apache.pdfbox: WARN
+    com.google.api.client: WARN
